@@ -37,7 +37,7 @@
 	<li><strong>Custom Browsers Color Start</strong> comment in src/index.html: set the color of the browser head on a variety of devices;</li>
 	<li><strong>Custom HTML</strong> comment in src/index.html - all your custom HTML;</li>
 	<li>For installing new jQuery library, just run the command "<strong>bower i plugin-name</strong>" in the terminal. Libraries are automatically placed in the folder <strong>src/libs</strong>. Bower must be installed in the system (npm i -g bower). Then place all jQuery libraries paths in the <strong>'libs'</strong> task (gulpfile.js);</li>
-	<li>All custom JS located in <strong>src/js/common.js</strong>;</li>
+	<li>All custom JS located in <strong>src/main.js</strong>;</li>
 	<li>All Sass vars placed in <strong>src/sass/_vars.sass | src/scss/_vars.scss</strong>;</li>
 	<li>All Bootstrap media queries placed in <strong>src/sass/_media.sass | src/scss/_media.scss</strong>;</li>
 	<li>All libraries CSS styles placed in <strong>src/sass/_libs.sass | src/scss/_libs.scss</strong>;</li>
