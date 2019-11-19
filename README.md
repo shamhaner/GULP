@@ -17,7 +17,7 @@
 <h2>How to use «HTML Start Template»</h2>
 
 <ol>
-	<li><a href="https://github.com/shamhaner/GULP/archive/master.zip">Download</a> <strong>«HTML Start Template»</strong> from GitHub;</li>
+	<li><strong><a href="https://github.com/shamhaner/GULP/archive/master.zip">Download</a> «HTML Start Template»</strong> from GitHub;</li>
 	<li>Install Node Modules: <strong>npm i</strong>;</li>
 	<li>Run the template: <strong>gulp</strong>.</li>
 </ol>
