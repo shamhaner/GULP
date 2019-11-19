@@ -1,7 +1,7 @@
 <h1><strong>HTML Start Template:</strong> <br>Full-featured template for creating a modern layout of sites and e-mail.</h1>
 
 <p>
-	<img src="https://raw.githubusercontent.com/shamhaner/GULP/blob/master/src/img/_src/preview.png" alt="HTML Start Template">
+	<img src="https://github.com/shamhaner/GULP/blob/master/src/img/_src/preview.png" alt="HTML Start Template">
 </p>
 
 <p>Author: <a href="http://https://xn--80aseleljd.xn--p1ai/" target="_blank">prospection</a></p>
