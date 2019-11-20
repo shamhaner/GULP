@@ -40,10 +40,10 @@ SW = [
 ];
 
 jsFiles = [
-	'./node_modules/jquery/dist/jquery.min.js',							// Optional jQuery plug-in (npm i jquery -D)
-    './src/_lazy.js',													// JS library plug-in example
-    './src/animation.js',												// JS library plug-in example
-    './src/main.js'    													// Custom scripts. Always at the end
+	'./node_modules/jquery/dist/jquery.min.js',											// Optional jQuery plug-in (npm i jquery -D)
+    './src/_lazy.js',																	// JS library plug-in example
+    './src/animation.js',																// JS library plug-in example
+    './src/main.js'    																	// Custom scripts. Always at the end
 ];
 
 
@@ -55,8 +55,8 @@ gulp.task('browser-sync', () => {
 			baseDir: siteRoot
 		},
 		notify: false,
-		// online: false, 												// Work offline without internet connection
-		// tunnel: true, tunnel: 'project', 							// Demonstration page: http://project.localtunnel.me
+		// online: false, 																// Work offline without internet connection
+		// tunnel: true, tunnel: 'project', 											// Demonstration page: http://project.localtunnel.me
 	})
 });
 function bsReload(done) { browserSync.reload(); done(); };
@@ -67,19 +67,18 @@ gulp.task('CSS', () => {
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(concat('main.css'))
-		.pipe(autoprefixer({
-			grid: true,
-			overrideBrowserslist: ['last 10 versions']
-		}))
-        .pipe(sourcemaps.write('./maps'))
-		.pipe(cleanCSS({level:2}))
-		.pipe(purge({
-			trim : true,
-			shorten : true,
-			verbose : true
-    }))        
-		.pipe(gulp.dest('./src'))
-		.pipe(browserSync.reload({ stream: true }));
+	// 	.pipe(autoprefixer({															// Uncomment before final assembly
+	// 		grid: true,
+	// 		overrideBrowserslist: ['last 10 versions']
+	// 	}))        
+	// 	.pipe(cleanCSS({level:2}))
+	// 	.pipe(purge({
+	// 		trim : true,
+	// 		shorten : true,
+	// 		verbose : true
+	// }))
+		.pipe(sourcemaps.write('./maps'))
+		.pipe(gulp.dest('./src'));
 });
 
 gulp.task('copy', () => {
@@ -101,8 +100,7 @@ gulp.task('JS', () => {
 	}))
 	.pipe(uglify())	
 	.pipe(sourcemaps.write('./maps'))
-	.pipe(gulp.dest('./build'))
-	.pipe(browserSync.stream())
+	.pipe(gulp.dest('./src/build'))
 });
 
 gulp.task('SW', () => {
@@ -113,11 +111,16 @@ gulp.task('SW', () => {
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./src/build'));
+});
+
+gulp.task('copy_JS', () => {
+    return gulp.src('./src/build/*.js')        
         .pipe(gulp.dest('./build'))
         .pipe(browserSync.stream());
 });
 
-gulp.task('scripts', gulp.series('JS', 'SW'));
+gulp.task('scripts', gulp.series('JS', 'SW', 'copy_JS'));
 
 // Responsive Images
 var quality = 95; // Responsive images quality
@@ -127,7 +130,7 @@ gulp.task('img-responsive-1x', async () => {
 	return gulp.src('src/img/_src/**/*.{png,jpg,jpeg,webp,raw}')
 		.pipe(newer('src/img/@1x'))
 		.pipe(responsive({
-			'**/*': { width: '50%', quality: quality }
+			'**/*': { width: '100%', quality: quality }
 		})).on('error', function (e) { console.log(e) })
 		.pipe(imagemin(
 			[imagemin.gifsicle({interlaced: true}),
@@ -142,7 +145,7 @@ gulp.task('img-responsive-2x', async () => {
 	return gulp.src('src/img/_src/**/*.{png,jpg,jpeg,webp,raw}')
 		.pipe(newer('src/img/@2x'))
 		.pipe(responsive({
-			'**/*': { width: '100%', quality: quality }
+			'**/*': { width: '50%', quality: quality }
 		})).on('error', function (e) { console.log(e) })
 		.pipe(imagemin(
 			[imagemin.gifsicle({interlaced: true}),
@@ -157,9 +160,9 @@ gulp.task('img', gulp.series('img-responsive-1x', 'img-responsive-2x', bsReload)
 // Code & Reload
 gulp.task('code', () => {
 	return gulp.src(htmlFiles)
-	.pipe(inlineCss())
-    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
-	.pipe(inlinesource())
+	// .pipe(inlineCss())																// Uncomment for inline CSS
+	// .pipe(inlinesource())															// Uncomment for inline JS
+    // .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))				// Uncomment for inline HTML
     .pipe(gulp.dest('build/'))
 	.pipe(browserSync.stream())
 });
@@ -183,7 +186,7 @@ gulp.task('fonts', gulp.series('fontsA', 'fontsC'));
 // Cleaning
 
 gulp.task('cleaning', function() {
-	return del(['./src/main.css','./src/maps/','./src/img/@1x','./src/img/@2x','./build'], { force:true })
+	return del(['./src/main.css','./src/maps/','./src/img/@1x','./src/img/@2x','./build','./src/build'], { force:true })
 });
 
 // Deploy

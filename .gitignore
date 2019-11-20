@@ -2,3 +2,6 @@
 **/Thumbs.db
 **/*.DS_Store
 /build
+/src/build
+/src/maps
+/src/main.css
