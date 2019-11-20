@@ -40,11 +40,10 @@ SW = [
 ];
 
 jsFiles = [
-	'./node_modules/jquery/dist/jquery.min.js',
-	'./src/libs/**/*.js',
-    './src/_lazy.js',
-    './src/animation.js',
-    './src/main.js'    
+	'./node_modules/jquery/dist/jquery.min.js',							// Optional jQuery plug-in (npm i jquery -D)
+    './src/_lazy.js',													// JS library plug-in example
+    './src/animation.js',												// JS library plug-in example
+    './src/main.js'    													// Custom scripts. Always at the end
 ];
 
 
@@ -56,8 +55,8 @@ gulp.task('browser-sync', () => {
 			baseDir: siteRoot
 		},
 		notify: false,
-		// online: false, // Work offline without internet connection
-		// tunnel: true, tunnel: 'project', // Demonstration page: http://project.localtunnel.me
+		// online: false, 												// Work offline without internet connection
+		// tunnel: true, tunnel: 'project', 							// Demonstration page: http://project.localtunnel.me
 	})
 });
 function bsReload(done) { browserSync.reload(); done(); };
