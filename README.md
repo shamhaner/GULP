@@ -42,7 +42,7 @@
 	<li>To enable the JS option «inline», you need to uncomment the parameter in the «code» task and add scripts to the src/index.html file at the end of the opening tag tag with a built-in space, similar to <script src = "main.js" <strong>inline</strong>></script>;</li>	
 	<li>To activate <strong>PWA</strong>, you need to uncomment the lines marked with the comment <strong>«PWA activation»</strong> in the src/index.html file.;</li>
 	<li>All custom JS located in <strong>src/main.js</strong>;</li>
-	<li>All Sass vars placed in <strong>src/sass/_vars.sass | src/scss/_vars.scss</strong>;</li>
+	<li>All Sass vars placed in <strong>src/sass/_vars.sass</strong>;</li>
 	<li>All Bootstrap media queries placed in <strong>src/sass/_media.sass</strong>;</li>
 	<li>All libraries CSS styles placed in <strong>src/sass/_libs.sass</strong>;</li>
 	<li>Rename <strong>ht.access</strong> to <strong>.htaccess</strong> before place it in your web server. This file contain rules for files caching on web server.</li>
