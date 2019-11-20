@@ -21,6 +21,7 @@
 	<li><strong><a href="https://github.com/shamhaner/GULP/archive/master.zip">Download</a> «HTML Start Template»</strong> from GitHub;</li>
 	<li>Install Node Modules: <strong>npm i</strong>;</li>
 	<li>Run the template: <strong>gulp</strong>.</li>
+	<li>Clear build folder and third-party files: <strong>gulp d</strong>.</li>
 </ol>
 
 <h2>Gulp tasks:</h2>
