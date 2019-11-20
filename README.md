@@ -39,10 +39,10 @@
 	<li><strong>Custom HTML</strong> comment in src/index.html - all your custom HTML;</li>
 	<li>For installing new library, just run the command "<strong>npm i plugin-name -D</strong>" in the terminal. Libraries are automatically placed in the folder <strong>node_modules</strong>. Then place all new JS libraries paths in the <strong>'jsFiles'</strong> list (gulpfile.js);</li>
 	<li>
-		<ul>
+		<ol>
 			<li>To enable the HTML and CSS option <strong>«inline»</strong>, you need to uncomment the options in the «code» task;</li>
-			<li>To enable the JS option «inline», you need to uncomment the parameter in the «code» task and add scripts to the <strong>src/index.html</strong> file at the end of the opening tag tag with a built-in space, similar to <script src = "main. Js" <strong>inline</strong>></script>;</li>
-		</ul>
+			<li>To enable the JS option «inline», you need to uncomment the parameter in the «code» task and add scripts to the <strong>src/index.html</strong> file at the end of the opening tag tag with a built-in space, similar to <script src = "main.js" <strong>inline</strong>></script>;</li>
+		</ol>
 	</li>
 	<li>All custom JS located in <strong>src/main.js</strong>;</li>
 	<li>All Sass vars placed in <strong>src/sass/_vars.sass | src/scss/_vars.scss</strong>;</li>
